@@ -109,19 +109,19 @@ class MultiBarToggle extends Component {
 
       const activationPositionX = this[`actionActivation_${i}`].interpolate({
         inputRange: [0, 1],
-        outputRange: [0, x]
+        outputRange: [0, x*1.8]
       });
 
       const activationPositionY = this[`actionActivation_${i}`].interpolate({
         inputRange: [0, 1],
-        outputRange: [0, y]
+        outputRange: [0, y*1.1]
       });
 
       return (
         <Animated.View
           key={`action_${i}`}
           style={[Styles.actionContainer, {
-            marginLeft: -actionSize / 2,
+            marginLeft: -actionSize / 4,
             left: activationPositionX,
             bottom: activationPositionY,
             transform: [
@@ -131,10 +131,8 @@ class MultiBarToggle extends Component {
         >
           <AnimatedTouchable
             style={{
-              width: actionSize,
+              width: actionSize/2,
               height: actionSize,
-              borderRadius: actionSize / 2,
-              backgroundColor: route.color
             }}
             onPress={() => this.actionPressed(route)}
           >
@@ -163,11 +161,6 @@ class MultiBarToggle extends Component {
     this.setState({ measured: true });
   };
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.routes !== this.props.routes) {
-      this.makeActivations(nextProps.routes);
-    }
-  }
 
   componentDidMount() {
     this.makeActivations(this.props.routes);
@@ -226,7 +219,6 @@ class MultiBarToggle extends Component {
             width: toggleSize,
             height: toggleSize,
             borderRadius: toggleSize / 2,
-            backgroundColor: toggleColor
           }]}>
             {icon}
           </Animated.View>
