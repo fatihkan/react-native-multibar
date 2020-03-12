@@ -103,8 +103,8 @@ class MultiBarToggle extends Component {
       const y = radius * Math.sin(-angle * Math.PI / 180);
 
       const activationScale = this[`actionActivation_${i}`].interpolate({
-        inputRange: [0, 0.5, 1],
-        outputRange: [0, 0, 1]
+        inputRange: [0,  0],
+        outputRange: [0,  1]
       });
 
       const activationPositionX = this[`actionActivation_${i}`].interpolate({
@@ -116,7 +116,10 @@ class MultiBarToggle extends Component {
         inputRange: [0, 1],
         outputRange: [0, y*1.1]
       });
-
+const _bgColorAnimation = this[`actionActivation_${i}`].interpolate({
+	inputRange: [0, 1],
+	outputRange: [0, 1]
+})
       return (
         <Animated.View
           key={`action_${i}`}
@@ -124,8 +127,9 @@ class MultiBarToggle extends Component {
             marginLeft: -actionSize / 4,
             left: activationPositionX,
             bottom: activationPositionY,
+            opacity:_bgColorAnimation,
             transform: [
-              { scale: activationScale }
+              { scale: activationScale  }
             ]
           }]}
         >
@@ -197,13 +201,13 @@ class MultiBarToggle extends Component {
         pointerEvents="box-none"
         style={toggleContainerStyle}
       >
-        {active && showOverlay && (
+        {active && (
           <TouchableWithoutFeedback onPress={this.togglePressed}>
             <View style={Styles.overlayActive}/>
           </TouchableWithoutFeedback>
         )}
         {measured && (
-          <View style={Styles.actionsWrapper}>
+          <View style={[Styles.actionsWrapper]}>
             {this.renderActions()}
           </View>
         )}
