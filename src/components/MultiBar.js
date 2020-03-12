@@ -30,7 +30,7 @@ const MultiBar = ({ style, navigation, activeTintColor, inactiveTintColor, rende
           bottom: 'always'
         }}
       >
-        <View style={{ height: 49 }}/>
+  
       </SafeAreaView>
       <View
         pointerEvents="box-none"
