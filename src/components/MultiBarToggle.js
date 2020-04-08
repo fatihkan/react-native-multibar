@@ -119,9 +119,8 @@ class MultiBarToggle extends Component {
       
       const activationOpacity = this[`actionActivation_${i}`].interpolate({
         inputRange: [0, 0],
-        outputRange: [0, 1]
+        outputRange: [-1, 1]
       });
-
       return (
         <Animated.View
           key={`action_${i}`}
@@ -129,7 +128,7 @@ class MultiBarToggle extends Component {
             marginLeft: -actionSize / 4,
             left: activationPositionX,
             bottom: activationPositionY,
-            opacity: activationOpacity,
+            zIndex:activationOpacity ,
             transform: [
               { scale: activationScale }
             ]
