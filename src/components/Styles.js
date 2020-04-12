@@ -66,8 +66,7 @@ export const MultibarToggleStyles = {
     position: 'absolute',
     height: height * 2,
     width: width * 2,
-    backgroundColor: 'rgba(0,0,0,0.5)',
-    bottom: '-150%'
+    bottom: '-50%'
   }
 };
 
@@ -77,7 +76,8 @@ export const TabIconStyles = {
     height: 50,
     width: 50,
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    zIndex: -1,
   },
   labelStyle: {
     fontSize: 11,
