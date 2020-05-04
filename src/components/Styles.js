@@ -1,4 +1,4 @@
-import { Dimensions } from 'react-native';
+import { Dimensions, Platform } from 'react-native';
 
 import { Colors } from '../utils/Colors';
 
@@ -77,7 +77,7 @@ export const TabIconStyles = {
     width: 50,
     alignItems: 'center',
     justifyContent: 'center',
-    zIndex: -1,
+    zIndex: Platform.OS === 'android' ? 0 :-1
   },
   labelStyle: {
     fontSize: 11,
