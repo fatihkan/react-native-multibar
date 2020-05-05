@@ -66,7 +66,8 @@ export const MultibarToggleStyles = {
     position: 'absolute',
     height: height * 2,
     width: width * 2,
-    bottom: '-50%'
+    bottom: '-50%',
+    zIndex: Platform.OS === 'android' && 1 
   }
 };
 
